@@ -1,0 +1,54 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/abdul/OneDrive - iut-dhaka.edu/Desktop/Solidworks/sign_post/analysis/geometry/sign_post.STEP")
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+system2 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+geometry2 = system2.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/abdul/OneDrive - iut-dhaka.edu/Desktop/Solidworks/sign_post/analysis/geometry/refined_sign_post.STEP")
+geometry1.SetFile(FilePath="C:/Users/abdul/OneDrive - iut-dhaka.edu/Desktop/Solidworks/sign_post/analysis/geometry/initial_sign_post.STEP")
+engineeringDataComponent1 = system1.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.Update(AllDependencies=True)
+system2.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+system3 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system2)
+geometry3 = system3.GetContainer(ComponentName="Geometry")
+geometry3.SetFile(FilePath="C:/Users/abdul/OneDrive - iut-dhaka.edu/Desktop/Solidworks/sign_post/analysis/geometry/third_sign_post_design.STEP")
+modelComponent2 = system3.GetComponent(Name="Model")
+modelComponent2.Refresh()
+setupComponent2 = system3.GetComponent(Name="Setup")
+setupComponent2.Refresh()
+setup2 = system3.GetContainer(ComponentName="Setup")
+setup2.Edit()
+system4 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system3)
+geometry4 = system4.GetContainer(ComponentName="Geometry")
+geometry4.SetFile(FilePath="C:/Users/abdul/OneDrive - iut-dhaka.edu/Desktop/Solidworks/sign_post/analysis/geometry/fourth_sign_post_design.STEP")
+modelComponent3 = system4.GetComponent(Name="Model")
+modelComponent3.Refresh()
+setupComponent3 = system4.GetComponent(Name="Setup")
+setupComponent3.Refresh()
+setup3 = system4.GetContainer(ComponentName="Setup")
+setup3.Edit()
+Save(Overwrite=True)
+modelComponent1.Refresh()
+setupComponent1.Refresh()
+setup1.Edit()
