@@ -41,19 +41,6 @@ The result has clear limits. I tried only a few optimization techniques: I chang
 | Maximum Principal Stress | ![Final Maximum Principal Stress](/images/analysis_images/final/final_maximum_principal_stress.jpg) |
 | Factor of Safety         |          ![Final Factor of Safety](/images/analysis_images/final/final_safety_factor.jpg)           |
 
-### Design Iterations
-
-| Elastic Modulus | Poisson's Ratio |  Density   | Standard Earth Gravity |
-| :-------------: | :-------------: | :--------: | :--------------------: |
-|     200 GPa     |       0.3       | 7850 kg/m³ |      9806.6 mm/s²      |
-
-| Design | Nodes  | Elements | Mass (kg) | Max. Deformation (mm) | Max. Principal Stress (MPa) | Max. Equivalent Stress (MPa) | Minimum FoS |
-| :----- | :----: | :------: | :-------: | :-------------------: | :-------------------------: | :--------------------------: | :---------: |
-| First  | 34,623 |  19,229  |   360.5   |        659.71         |           843.44            |            889.59            |    0.281    |
-| Second | 90,671 |  57,200  |   407.6   |        437.74         |           525.30            |            474.53            |    0.527    |
-| Third  | 99,907 |  63,218  |   439.0   |        363.69         |           466.60            |            409.97            |    0.610    |
-| Fourth | 48,038 |  29,527  |   595.1   |         54.09         |           172.07            |            164.36            |  **1.521**  |
-
 ## Technologies Used
 
 | Purpose  |                   Name                    |
@@ -74,24 +61,9 @@ The result has clear limits. I tried only a few optimization techniques: I chang
 
 The design of the sign post was developed as a prototype product. That's why the real-life design considerations, including wind load calculation to a design code, material grade and corrosion protection, anchor bolts and foundation design, welds and connection details, fatigue life, impact safety, proper design specification, monetization, and feasibility, have not been included. The limitations of the analysis are listed below.
 
-### Analyses Needed (Not Done)
-
-The following analyses are necessary before the design can be trusted, and I suggest them as the next steps:
-
-| No  | Analysis                             |
-| :-: | :----------------------------------- |
-| 01  | Mesh convergence study               |
-| 02  | Wind load analysis                   |
-| 03  | Combined load cases                  |
-| 04  | Modal analysis                       |
-| 05  | Linear buckling analysis             |
-| 06  | Fatigue analysis                     |
-| 07  | Parametric and topology optimization |
-| 08  | Foundation or soil support analysis  |
-
 ## Future Improvements
 
-The next step is to make the load case realistic. Replacing the horizontal gravity load with a wind load calculated to a design code, such as the AASHTO specification for structural supports for highway signs [^3][^4], and adding the weight of the sign would show how the post behaves in real service. The results should first be verified with a mesh convergence study, especially at the base where a stress singularity may occur, and with a hand calculation of the cantilever beam. Modal, buckling and fatigue analyses should follow, since wind loading is repeated and the post is slender. Once the load and the model can be trusted, a systematic optimization, such as a parametric study or topology optimization in ANSYS, can reduce the mass while keeping a target factor of safety and a limit on the top deflection. A hollow tube, or a section that is deeper in the direction of the load, would give more bending strength for less material, and gussets, ribs or a larger fillet could lower the stress where the post meets the base plate. The fixed support should also be replaced with a model of the base plate, anchor bolts and foundation. Finally, a real steel grade with corrosion protection such as galvanizing should be chosen, a passively safe or breakaway design should be considered for posts near roads [^2], and manufacturing drawings, a bill of materials and a cost estimate should be prepared.
+Future work should apply a code-based wind load, such as the AASHTO specification [^3][^4], together with the sign's weight, and verify the results with a mesh convergence study and a hand calculation. Modal, buckling and fatigue analyses should follow. A systematic optimization, such as a parametric study or topology optimization, could then reduce the mass while keeping the factor of safety. A hollow section, base gussets and a modeled foundation with anchor bolts would improve realism, and a real steel grade with corrosion protection should be chosen. A breakaway design [^2] and manufacturing drawings could also be considered.
 
 ## References
 
